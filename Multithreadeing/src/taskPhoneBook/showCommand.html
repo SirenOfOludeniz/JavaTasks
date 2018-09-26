@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>showCommand</title>
+</head>
+<body>
+<script>
+
+    var result = '';
+    var objectList = [];//массив объектов. в каждом об-те поля name и num
+    objectList.push( {
+        name: 'Ivan',
+        num: '234-33-22, 123-11-34'
+    });
+    objectList.push( {
+        name: 'Alan',
+        num: '332-33-21'
+    });
+    objectList.push( {
+        name: 'Van',
+        num: '234-33-22'
+    });
+    var command = 'SHOW';
+    var words = command.split(' '); //сохраняем слова из команды
+    alert(show(command));
+    function show(command) {
+        var tmp = [];
+        var size = objectList.length;
+        var contacts = [];
+        if(size > 0) {
+            tmp = objectList.sort(userCompare);
+
+            for(var i = 0; i < tmp.length; i++) {
+                contacts.push(tmp[i].name + ': ' + tmp[i].num)
+            }
+
+            /*for(var i = 0; i < size; i++) {
+                 contacts.push(objectList[i].name + objectList[i].num);
+             }*/
+            result = contacts;
+            return result;
+        }
+
+        function userCompare(a, b) {
+            var r = 0;
+            if (a.name > b.name) {r = 1;}
+            if (a.name < b. name) {r = -1;}
+            return r;
+        }
+
+    }
+</script>
+</body>
+</html>

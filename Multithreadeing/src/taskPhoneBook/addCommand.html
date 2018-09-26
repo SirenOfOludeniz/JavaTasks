@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addCommand</title>
+</head>
+<body>
+<script>
+    var command = 'ADD Ivan 555-10-01,555-10-03';
+    var command2 = 'ADD Ivan 394-11-45';
+    var result = '';
+    var objectList = [];//массив объектов. в каждом об-те поля name и num
+
+    alert(add(command));
+    alert(add(command2));
+    function add(command) {
+        var words = command.split(' '); //сохраняем слова из команды
+        var numbers = words[2];
+        var isName = false;
+        var executionResult;
+
+        for(var i = 0; i < objectList.length; i++) {
+            //если уже есть чувак с таким именем, закидываем ему номер в num
+            if(objectList[i].name == words[1]) {
+                var addNumber = objectList[i].num + ',' + numbers;
+                objectList[i].num = addNumber;
+                isName = true;
+                executionResult = 'Добавлен номер в контакт ' + objectList[i].name + ' номера: ' + addNumber;
+            }
+        }
+        if(!isName) { //а если нет создаем новый объект контакта
+
+            objectList.push({ //new точно прокатывает в JavaScript?
+                name: words[1],
+                num: numbers
+            });
+            executionResult = 'Новый контакт ' + words[1] + ' с номерами ' + numbers;
+        }
+        return executionResult;
+    }
+</script>
+</body>
+</html>

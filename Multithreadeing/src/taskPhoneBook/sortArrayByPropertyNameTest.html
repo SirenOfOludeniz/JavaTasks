@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort</title>
+</head>
+<body>
+<script>
+    var objectList = [];
+    objectList.push( {
+        name: 'Ivan',
+        numbers: '234-33-22, 123-11-34'
+    });
+    objectList.push( {
+        name: 'Alan',
+        numbers: '332-33-21'
+    });
+    objectList.push( {
+        name: 'Van',
+        numbers: '234-33-22'
+    });
+    var result = [];
+    result = objectList.sort(userCompare);
+    //printArray(objectList);
+    for(var i = 0; i < result.length; i++) {
+
+       document.write(result[i].name + result[i].numbers + '');
+    }
+    function userCompare(a, b) {
+       var r = 0;
+       if (a.name > b.name) {r = 1;}
+       if (a.name < b. name) {r = -1;}
+       return r;
+    }
+   /* function printArray(array) {
+        document.write(array.join('<br/>'));
+    }*/
+
+
+</script>
+</body>
+</html>

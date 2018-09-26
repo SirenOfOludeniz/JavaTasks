@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>removeCommand</title>
+</head>
+<body>
+<script>
+    var phoneNumber = '555-10-03';
+    var objectList = [];//массив объектов. в каждом об-те поля name и num
+    objectList.push({name: 'Baba', num: '555-10-03'});
+    alert(remove_phone(phoneNumber));
+    function remove_phone(phoneNumber) {
+        var resultRemove = 'false';
+        for(var i = 0; i < objectList.length; i++) {
+            if (objectList[i].num.indexOf(phoneNumber) != -1) {
+                var splitArray = objectList.num.split(' ');
+                for(var a = 0; a < splitArray.length; a++) {
+                    var ar = [];
+                    if(splitArray[i] != phoneNumber) {
+                        ar.push(splitArray[i]);
+                    }
+                }
+                var newnumber = ar.join(' ');
+                objectList[i].num = newnumber;
+                resultRemove = 'true';
+            }
+        }
+        return resultRemove;
+    };
+</script>
+</body>
+</html>
