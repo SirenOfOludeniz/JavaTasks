@@ -43,11 +43,13 @@ module.exports = function (command) {
         keys.sort();
 
         for(var i = 0; i < keys.length; i++) {
-            resultString = keys[i] + ': ' + phoneBook[keys[i]].join(',');
-            stringArray.push(resultString);
+            if (phoneBook[keys[i]].length > 0) {
+                resultString = keys[i] + ': ' + phoneBook[keys[i]].join(', ');
+                stringArray.push(resultString);
+            }
+
         }
-       if(keys.length > 0){
+
             return stringArray;
-       }
     }
 };
